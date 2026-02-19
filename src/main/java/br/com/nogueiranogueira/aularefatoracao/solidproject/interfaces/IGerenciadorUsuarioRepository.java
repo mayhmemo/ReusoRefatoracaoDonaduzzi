@@ -1,11 +1,11 @@
-package br.com.nogueiranogueira.aularefatoracao.solidproject.repository;
+package br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces;
 
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface GerenciadorUsuarioRepository {
+public interface IGerenciadorUsuarioRepository {
 
     Usuario salvar(Usuario usuario);
     Optional<Usuario> buscarPorId(Long id);
