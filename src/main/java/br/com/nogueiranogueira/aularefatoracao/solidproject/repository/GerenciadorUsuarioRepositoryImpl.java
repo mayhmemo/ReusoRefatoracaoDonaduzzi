@@ -1,5 +1,7 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.repository;
 
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IGerenciadorUsuarioRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IUsuarioRepository;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -7,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class GerenciadorUsuarioRepositoryImpl implements GerenciadorUsuarioRepository {
+public class GerenciadorUsuarioRepositoryImpl implements IGerenciadorUsuarioRepository {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private IUsuarioRepository usuarioRepository;
 
     @Override
     public Usuario salvar(Usuario usuario) {
