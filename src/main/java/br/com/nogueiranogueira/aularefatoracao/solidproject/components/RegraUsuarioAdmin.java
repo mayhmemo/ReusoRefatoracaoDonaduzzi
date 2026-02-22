@@ -18,7 +18,7 @@ public class RegraUsuarioAdmin implements IRegraUsuario {
         validarEmail(dto.email());
 
         Usuario usuario = new Usuario(dto.nome(), dto.email(), dto.tipo());
-        usuario.setPontos(0); // exemplo
+        usuario.setPontos(200);
         return usuario;
     }
 

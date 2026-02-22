@@ -1,7 +1,7 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.controller;
 
-import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
-import br.com.nogueiranogueira.aularefatoracao.solidproject.service.UsuarioService;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.dto.UsuarioDTO;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.service.GerenciadorUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class UsuarioController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private GerenciadorUsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<String> criarUsuario(@RequestBody Usuario usuario) {
+    public ResponseEntity<String> criarUsuario(@RequestBody UsuarioDTO usuario) {
         try {
             usuarioService.criarUsuario(usuario);
             return ResponseEntity.ok("Usuário criado com sucesso");
