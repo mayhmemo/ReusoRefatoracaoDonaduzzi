@@ -1,5 +1,6 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces;
 
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 
 import java.util.List;
@@ -12,7 +13,7 @@ public interface IGerenciadorUsuarioRepository {
     List<Usuario> buscarTodos();
     void excluir(Usuario usuario);
 
-    List<Usuario> buscarPorFiltroAvançados(String nome, String email, String tipoUsuario);
-    long contarUsuariosPorTipo(String tipoUsuario);
+    List<Usuario> buscarPorFiltroAvançados(String nome, String email, TipoUsuario tipoUsuario);
+    long contarUsuariosPorTipo(TipoUsuario tipoUsuario);
     List<Object[]> gerarRelatorioUsuariosPorTipo();
 }

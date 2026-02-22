@@ -1,6 +1,7 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.service;
 
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IUsuarioRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,15 @@ public class UsuarioService {
     private UsuarioMailSenderService usuarioMailSenderService;
 
     public Usuario criarUsuario(Usuario usuario) {
-        String tipo = usuario.getTipo();
+        TipoUsuario tipo = usuario.getTipo();
 
         validarUsuarioJaExistente(usuario.getEmail());
 
-        if ("COMUM".equals(tipo)) {
+        if (tipo == TipoUsuario.COMUM) {
             validarEmail(usuario.getEmail());
             usuario.setPontos(0);
 
-        } else if ("VIP".equals(tipo)) {
+        } else if (tipo == TipoUsuario.VIP) {
             validarEmail(usuario.getEmail());
             usuario.setPontos(100);
 

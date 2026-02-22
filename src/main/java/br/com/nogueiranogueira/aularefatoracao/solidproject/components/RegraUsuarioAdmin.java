@@ -1,7 +1,7 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.components;
-
 import br.com.nogueiranogueira.aularefatoracao.solidproject.dto.UsuarioDTO;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IRegraUsuario;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import org.springframework.stereotype.Component;
 
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 public class RegraUsuarioAdmin implements IRegraUsuario {
 
     @Override
-    public String tipo() {
-        return "ADMIN";
+    public TipoUsuario tipo() {
+        return TipoUsuario.ADMIN;
     }
 
     @Override

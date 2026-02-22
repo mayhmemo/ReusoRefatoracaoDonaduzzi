@@ -2,6 +2,7 @@ package br.com.nogueiranogueira.aularefatoracao.solidproject.service;
 
 import br.com.nogueiranogueira.aularefatoracao.solidproject.dto.UsuarioDTO;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IRegraUsuario;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class GerenciadorUsuarioService {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
-    private final Map<String, IRegraUsuario> regrasPorTipo;
+    private final Map<TipoUsuario, IRegraUsuario> regrasPorTipo;
 
     public GerenciadorUsuarioService(List<IRegraUsuario> regras) {
         this.regrasPorTipo = regras.stream()

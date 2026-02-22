@@ -1,10 +1,12 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.dto;
 
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
+
 public record UsuarioDTO(
         Long id,
         String nome,
         String email,
-        String tipo,
+        TipoUsuario tipo,
         int idade
 ) {
 }

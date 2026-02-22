@@ -2,6 +2,7 @@ package br.com.nogueiranogueira.aularefatoracao.solidproject.repository;
 
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IGerenciadorUsuarioRepository;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IUsuarioRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,13 +36,13 @@ public class GerenciadorUsuarioRepositoryImpl implements IGerenciadorUsuarioRepo
     }
 
     @Override
-    public java.util.List<Usuario> buscarPorFiltroAvançados(String nome, String email, String tipoUsuario) {
+    public java.util.List<Usuario> buscarPorFiltroAvançados(String nome, String email, TipoUsuario tipoUsuario) {
         // Implementação de busca avançada usando critérios específicos
         throw  new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public long contarUsuariosPorTipo(String tipoUsuario) {
+    public long contarUsuariosPorTipo(TipoUsuario tipoUsuario) {
         // Implementação de contagem de usuários por tipo
         return usuarioRepository.countByTipo(tipoUsuario);
     }

@@ -11,10 +11,11 @@ public class Usuario {
     private Long id;
     private String nome;
     private String email;
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario tipo;
     private int pontos;
 
-    public Usuario(String nome, String email, String tipo) {
+    public Usuario(String nome, String email, TipoUsuario tipo) {
         this.nome = nome;
         this.email = email;
         this.tipo = tipo;
@@ -42,10 +43,10 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    public String getTipo() {
+    public TipoUsuario getTipo() {
         return tipo;
     }
-    public void setTipo(String tipo) {
+    public void setTipo(TipoUsuario tipo) {
         this.tipo = tipo;
     }
     public int getPontos() {
