@@ -5,6 +5,6 @@ import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 
 import java.util.List;
 
-public interface UsuarioFiltroRepository {
+public interface UsuarioFiltroRepository { // TODO: verificar necessidade
     List<Usuario> buscarPorFiltroAvançados(String nome, String email, TipoUsuario tipoUsuario);
 }

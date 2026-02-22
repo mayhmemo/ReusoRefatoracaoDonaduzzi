@@ -19,7 +19,7 @@ public class RegraUsuarioVip implements IRegraUsuario {
     }
 
     @Override
-    public Usuario criar(UsuarioDTO dto) {
+    public Usuario criar(UsuarioDTO dto) { // TODO: aplicar UsuarioVIP
         usuarioValidacaoService.validarEmail(dto.email());
         usuarioValidacaoService.validarIdade(dto.idade());
         usuarioValidacaoService.validarEmailNaoCadastrado(dto.email());
