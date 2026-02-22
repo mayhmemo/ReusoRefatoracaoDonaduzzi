@@ -18,8 +18,13 @@ public class UsuarioController {
 
     @PostMapping
     public ResponseEntity<String> criarUsuario(@RequestBody Usuario usuario) {
-        usuarioService.criarUsuario(usuario);
-
-        return ResponseEntity.ok("Usuário criado com sucesso");
+        try {
+            usuarioService.criarUsuario(usuario);
+            return ResponseEntity.ok("Usuário criado com sucesso");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Erro ao criar usuário");
+        }
     }
 }
