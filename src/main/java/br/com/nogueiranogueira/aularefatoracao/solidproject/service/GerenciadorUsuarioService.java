@@ -19,6 +19,9 @@ public class GerenciadorUsuarioService {
     @Autowired
     private IUsuarioRepository usuarioRepository;
 
+    @Autowired
+    private UsuarioMailSenderService usuarioMailSenderService;
+
     private final Map<TipoUsuario, IRegraUsuario> regrasPorTipo;
 
     public GerenciadorUsuarioService(List<IRegraUsuario> regras) {
@@ -33,7 +36,11 @@ public class GerenciadorUsuarioService {
             throw new IllegalArgumentException("Tipo inválido: " + dto.tipo());
         }
 
-        Usuario usuario = regra.criar(dto);
-        return usuarioRepository.save(usuario);
+        Usuario usuarioEntidade = regra.criar(dto);
+        Usuario usuarioSalvo = usuarioRepository.save(usuarioEntidade);
+
+        usuarioMailSenderService.enviarEmailBoasVindas(usuarioSalvo.getEmail(), usuarioSalvo.getNome());
+
+        return usuarioSalvo;
     }
 }
