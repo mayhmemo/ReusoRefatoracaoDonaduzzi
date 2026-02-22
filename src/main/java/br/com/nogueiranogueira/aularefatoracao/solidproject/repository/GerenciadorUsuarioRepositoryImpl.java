@@ -1,7 +1,9 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.repository;
 
-import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IGerenciadorUsuarioRepository;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IUsuarioRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.UsuarioCrudRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.UsuarioFiltroRepository;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.UsuarioRelatorioRepository;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public class GerenciadorUsuarioRepositoryImpl implements IGerenciadorUsuarioRepository {
+public class GerenciadorUsuarioRepositoryImpl implements UsuarioCrudRepository, UsuarioFiltroRepository, UsuarioRelatorioRepository {
 
     @Autowired
     private IUsuarioRepository usuarioRepository;
