@@ -1,15 +1,15 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.service;
 
-import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.Descontavel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class DescontoService {
-    public int calculaDescontoTotal(List<Usuario> usuarios) {
+    public int calculaDescontoTotal(List<Descontavel> usuarios) {
         return usuarios.stream()
-                .mapToInt(Usuario::getDesconto)
+                .mapToInt(Descontavel::getDesconto)
                 .sum();
     }
 }
