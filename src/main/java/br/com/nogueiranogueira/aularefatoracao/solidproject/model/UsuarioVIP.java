@@ -1,18 +1,20 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.model;
 
-import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.Descontavel;
+import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public class UsuarioVIP implements Descontavel {
+@Setter
+@Entity
+public class UsuarioVIP extends Usuario {
 
-    private final Usuario usuario;
-    @Setter
     private boolean temCartaoFidelidade;
 
-    public UsuarioVIP(Usuario usuario) {
-        this.usuario = usuario;
+    public UsuarioVIP() {}
+
+    public UsuarioVIP(String nome, String email) {
+        super(nome, email, TipoUsuario.VIP);
     }
 
     @Override

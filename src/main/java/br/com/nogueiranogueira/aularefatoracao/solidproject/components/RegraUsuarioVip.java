@@ -3,6 +3,7 @@ import br.com.nogueiranogueira.aularefatoracao.solidproject.dto.UsuarioDTO;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.interfaces.IRegraUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.TipoUsuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.UsuarioVIP;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.service.UsuarioValidacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -19,12 +20,12 @@ public class RegraUsuarioVip implements IRegraUsuario {
     }
 
     @Override
-    public Usuario criar(UsuarioDTO dto) { // TODO: aplicar UsuarioVIP
+    public Usuario criar(UsuarioDTO dto) {
         usuarioValidacaoService.validarEmail(dto.email());
         usuarioValidacaoService.validarIdade(dto.idade());
         usuarioValidacaoService.validarEmailNaoCadastrado(dto.email());
 
-        Usuario usuario = new Usuario(dto.nome(), dto.email(), dto.tipo());
+        UsuarioVIP usuario = new UsuarioVIP(dto.nome(), dto.email());
         usuario.setPontos(100);
         return usuario;
     }
