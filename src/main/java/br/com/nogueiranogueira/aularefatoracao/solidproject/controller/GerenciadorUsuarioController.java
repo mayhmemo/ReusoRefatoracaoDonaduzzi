@@ -1,6 +1,7 @@
 package br.com.nogueiranogueira.aularefatoracao.solidproject.controller;
 
 import br.com.nogueiranogueira.aularefatoracao.solidproject.dto.UsuarioDTO;
+import br.com.nogueiranogueira.aularefatoracao.solidproject.model.Usuario;
 import br.com.nogueiranogueira.aularefatoracao.solidproject.service.GerenciadorUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,14 +14,14 @@ public class GerenciadorUsuarioController {
     private GerenciadorUsuarioService gerenciadorUsuarioService;
 
     @PostMapping()
-    public ResponseEntity<String> criarUsuario(@RequestBody UsuarioDTO usuario) {
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody UsuarioDTO usuario) {
         try {
-            gerenciadorUsuarioService.criarUsuario(usuario);
-            return ResponseEntity.ok("Usuário criado com sucesso");
+            Usuario criado = gerenciadorUsuarioService.criarUsuario(usuario);
+            return ResponseEntity.ok(criado);
         } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().build();
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erro ao criar usuário");
+            return ResponseEntity.status(500).build();
         }
     }
 }
